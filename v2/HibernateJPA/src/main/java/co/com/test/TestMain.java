@@ -1,3 +1,5 @@
+package co.com.test;
+
 
 import co.com.dao.EntityDao;
 import co.com.domain.Address;
