@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -22,6 +24,7 @@ public class Contact implements Serializable{
     
     @Id
     @Column(name = "id_contact")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idContact;
     private String phone;
     private String email;
@@ -35,6 +38,11 @@ public class Contact implements Serializable{
 
     public Contact(Integer idContact, String phone, String email) {
         this.idContact = idContact;
+        this.phone = phone;
+        this.email = email;
+    }
+
+    public Contact(String phone, String email) {
         this.phone = phone;
         this.email = email;
     }

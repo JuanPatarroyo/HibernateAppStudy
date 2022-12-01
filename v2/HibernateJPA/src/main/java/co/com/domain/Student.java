@@ -8,8 +8,11 @@ package co.com.domain;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,13 +29,17 @@ public class Student implements Serializable {
     
     @Id
     @Column(name = "id_student")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idStudent;
-    @ManyToOne
+    
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_address", referencedColumnName = "id")
     private Address idAddress;
-    @ManyToOne
+    
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_contact", referencedColumnName = "id_contact")
     private Contact idContact;
+    
     private String name;
     @Column(name = "last_name")
     private String lastName;
@@ -44,6 +51,21 @@ public class Student implements Serializable {
 
     public Student(Integer idStudent) {
         this.idStudent = idStudent;
+    }
+
+    public Student(Integer idStudent, Address idAddress, Contact idContact, String name, String lastName) {
+        this.idStudent = idStudent;
+        this.idAddress = idAddress;
+        this.idContact = idContact;
+        this.name = name;
+        this.lastName = lastName;
+    }
+
+    public Student(Address idAddress, Contact idContact, String name, String lastName) {
+        this.idAddress = idAddress;
+        this.idContact = idContact;
+        this.name = name;
+        this.lastName = lastName;
     }
 
     public Integer getIdStudent() {
