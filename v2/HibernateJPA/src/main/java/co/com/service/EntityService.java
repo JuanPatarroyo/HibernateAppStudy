@@ -14,28 +14,37 @@ import java.util.List;
  * @author jpatarroyo
  */
 public class EntityService<T> {
-    
+
     private Class<T> type;
-    EntityDao<T> entityDao = new EntityDao<>();
+    EntityDao<T> entityDao = null;
     
-    public List<T> getAll(String table){
+    public EntityService(Class<T> classType){
+        type = classType;
+        entityDao = new EntityDao<>(type);
+    }
+
+    public List<T> getAll(String table) {
         return entityDao.getAll(table);
     }
-    
-    public void saveObject(T objectToSave){
-        Student student = (Student) objectToSave;
-        if(objectToSave != null && student.getIdStudent() != null){
+
+    public void saveObject(T objectToSave) {
+        Integer id = null;
+        if (Student.class.isInstance(objectToSave)) {
+            Student student = (Student) objectToSave;
+            id = student.getIdStudent();
+        }
+        if (objectToSave != null && id != null) {
             entityDao.update(objectToSave);
-        }else{
+        } else {
             entityDao.insert(objectToSave);
         }
     }
-    
-    public void deleteObject(T objectToDelete){
+
+    public void deleteObject(T objectToDelete) {
         entityDao.delete(objectToDelete);
     }
-    
-    public T getSpecificObject(T objectToFind, Integer id){
+
+    public T getSpecificObject(T objectToFind, Integer id) {
         return entityDao.getById(objectToFind, id);
     }
 }

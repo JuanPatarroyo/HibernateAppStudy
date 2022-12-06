@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-   version="4.0">
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <servlet>
+        <servlet-name>ServletController</servlet-name>
+        <servlet-class>co.com.web.ServletController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletRedirect</servlet-name>
+        <servlet-class>co.com.web.ServletRedirect</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletAdd</servlet-name>
+        <servlet-class>co.com.web.ServletAdd</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletModify</servlet-name>
+        <servlet-class>co.com.web.ServletModify</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletController</servlet-name>
+        <url-pattern>/ServletController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletRedirect</servlet-name>
+        <url-pattern>/ServletRedirect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAdd</servlet-name>
+        <url-pattern>/ServletAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletModify</servlet-name>
+        <url-pattern>/ServletModify</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

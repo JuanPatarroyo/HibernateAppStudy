@@ -16,6 +16,10 @@ public class EntityDao<T> extends ConfigurationDao {
 
     private Class<T> type;
     
+    public EntityDao(Class<T> typeClass){
+        type = typeClass;
+    }
+    
     public List<T> getAll(String table) {
         String sql = "SELECT " + table.substring(0, 1) + " FROM " + table + " " + table.substring(0, 1);
         em = getEntityManager();
@@ -31,10 +35,6 @@ public class EntityDao<T> extends ConfigurationDao {
             em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace(System.err);
-        } finally {
-            if (em != null){
-                em.close();
-            }
         }
     }
     
@@ -46,10 +46,6 @@ public class EntityDao<T> extends ConfigurationDao {
             em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace(System.err);
-        } finally {
-            if (em != null){
-                em.close();
-            }
         }
     }
     
@@ -61,10 +57,6 @@ public class EntityDao<T> extends ConfigurationDao {
             em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace(System.err);
-        } finally {
-            if (em != null){
-                em.close();
-            }
         }
     }
     
