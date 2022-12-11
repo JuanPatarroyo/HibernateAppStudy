@@ -3,7 +3,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="resources/css/styles.css"/>
         <title>Index</title>
         <jsp:include page="/resources/libraries.jsp" />
     </head>
