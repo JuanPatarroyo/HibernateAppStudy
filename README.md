@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <img src="images_readme/logo.png" alt="Logo" width="80" height="80">
+  <img src="images_readme/logo.png" alt="Logo" width="150" height="150">
 
   <h3 align="center">Hibernate App Study</h3>
 
@@ -29,7 +29,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="images_readme/1.png" alt="First Picture" width="200" height="200">
+<img src="images_readme/1.png" alt="First Picture">
 
 This project is a study about Hibernate, you could find several principles that you can use in your own projects.
 
